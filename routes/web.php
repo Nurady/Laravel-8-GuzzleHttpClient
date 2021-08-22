@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::get('/all-complaint', [GuzzleController::class, 'index'])->name('all.complaint');
 Route::get('/create', [GuzzleController::class, 'create'])->name('create.complaint');
 Route::post('/store-complaint', [GuzzleController::class, 'store'])->name('store.complaint');
+Route::get('/detail-complaint/{id}', [GuzzleController::class, 'detail'])->name('detail.complaint');
 
 Route::get('/dashboard-user', [DashboardController::class, 'index'])->name('dashboard.user');
 Route::get('/akun-user', [AkunController::class, 'index'])->name('akun.user');

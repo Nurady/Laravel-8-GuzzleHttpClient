@@ -11,9 +11,17 @@ class GuzzleController extends Controller
     public function index()
     {
         $token = session('token');
-        $aduan = Http::get('https://a3e2-110-136-218-170.ngrok.io/api/complaint')->json();
+        $aduan = Http::get('https://3c35-110-136-218-170.ngrok.io/api/complaint')->json();
         $response = $aduan['data']['data'];
         return view('guzzle', compact('response', 'token'));
+    }
+
+    public function detail($id)
+    {
+        $aduan = Http::get('https://3c35-110-136-218-170.ngrok.io/api/complaint', ['id' => $id])->json(); 
+        $data = $aduan['data'];
+        // dd($data);
+        return view('detail', compact('data'));
     }
 
     public function create()
@@ -26,7 +34,7 @@ class GuzzleController extends Controller
     {
         // Tanpa Bearer Token
                 // Http::attach('picturePath', file_get_contents($request->picturePath), 'assets/complaint/' . $request->picturePath)
-                //         ->post('https://a3e2-110-136-218-170.ngrok.io/api/aduan', [
+                //         ->post('https://3c35-110-136-218-170.ngrok.io/api/aduan', [
                 //             'title' => $request->title,
                 //             'location' => $request->location,
                 //             'category' => $request->category,
@@ -38,7 +46,7 @@ class GuzzleController extends Controller
         $token = session('token');
         $response = Http::withHeaders(['Authorization' => $token])
                 ->attach('picturePath', file_get_contents($request->picturePath), 'assets/complaint/' . $request->picturePath)
-                ->post('https://a3e2-110-136-218-170.ngrok.io/api/createComplaint', [
+                ->post('https://3c35-110-136-218-170.ngrok.io/api/createComplaint', [
                     'title' => $request->title,
                     'location' => $request->location,
                     'category' => $request->category,

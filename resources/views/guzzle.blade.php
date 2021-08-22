@@ -20,6 +20,7 @@
                         </div>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $item['location'] }}</h6>
                         <p class="card-text">{{ $item['description'] }}.</p>
+                        <a href="{{ route('detail.complaint', $item['id']) }}" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>

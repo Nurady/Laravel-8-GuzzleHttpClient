@@ -17,3 +17,4 @@
 7. Menyimpan Session Token ketika Login
 8. Halaman Login Manual
 9. Rest API Backend dengan Laravel Sanctum dan Fortify
+10. Halaman Detail, Mengirim parameter ID data API

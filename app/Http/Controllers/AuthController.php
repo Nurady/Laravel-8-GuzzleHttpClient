@@ -15,7 +15,7 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         // dd('ok');
-        $response = Http::post('https://a3e2-110-136-218-170.ngrok.io/api/login', [
+        $response = Http::post('https://3c35-110-136-218-170.ngrok.io/api/login', [
             'email' => $request->email,
             'password' => $request->password,
         ]);
