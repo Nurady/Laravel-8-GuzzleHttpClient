@@ -16,5 +16,7 @@
 6. Bootstrap Simple UI
 7. Menyimpan Session Token ketika Login
 8. Halaman Login Manual
-9. Rest API Backend dengan Laravel Sanctum dan Fortify
-10. Halaman Detail, Mengirim parameter ID data API
+9. Halaman Register Manual
+10. Halaman Logout Manual
+11. Rest API Backend dengan Laravel Sanctum dan Fortify
+12. Halaman Detail, Mengirim parameter ID data API
