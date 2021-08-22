@@ -17,18 +17,22 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item {{ Request::segment(1) === 'akun-user' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ route('akun.user') }}">Akun</a>
-                </li>
-                <li class="nav-item {{ Request::segment(1) === 'login' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ route('login') }}">login</a>
-                </li>
-                <li class="nav-item {{ Request::segment(1) === 'register-user' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ url('register-user') }}">Register</a>
-                </li>
-                <li class="nav-item {{ Request::segment(1) === 'logout-user' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ url('logout-user') }}">Logout</a>
-                </li>
+                @if(!session('token'))
+                    <li class="nav-item {{ Request::segment(1) === 'login' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ route('login') }}">login</a>
+                    </li>
+                    <li class="nav-item {{ Request::segment(1) === 'register-user' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ url('register-user') }}">Register</a>
+                    </li>
+                @endif
+                @if(session('token'))
+                    <li class="nav-item {{ Request::segment(1) === 'akun-user' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ route('akun.user') }}">Akun</a>
+                    </li>
+                    <li class="nav-item {{ Request::segment(1) === 'logout-user' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ url('logout-user') }}">Logout</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

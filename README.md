@@ -20,3 +20,5 @@
 10. Halaman Logout Manual
 11. Rest API Backend dengan Laravel Sanctum dan Fortify
 12. Halaman Detail, Mengirim parameter ID data API
+13. Halaman Detail Akun User
+14. Update Photo Profile User

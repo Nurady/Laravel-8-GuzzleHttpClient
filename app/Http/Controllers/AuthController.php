@@ -22,7 +22,6 @@ class AuthController extends Controller
 
         $token = $response->json()['data']['token_type'] . ' ' . $response->json()['data']['access_token'];
         session(['token' => $token]);
-
         $session_token = session('token');
         // dd($session_token);
 

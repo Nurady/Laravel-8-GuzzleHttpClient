@@ -13,7 +13,9 @@ Route::post('/store-complaint', [GuzzleController::class, 'store'])->name('store
 Route::get('/detail-complaint/{id}', [GuzzleController::class, 'detail'])->name('detail.complaint');
 
 Route::get('/dashboard-user', [DashboardController::class, 'index'])->name('dashboard.user');
+
 Route::get('/akun-user', [AkunController::class, 'index'])->name('akun.user');
+Route::post('/photo', [AkunController::class, 'photo'])->name('photo.user');
 
 Route::get('login', [AuthController::class, 'login']);
 Route::post('login/store', [AuthController::class, 'store'])->name('login.store');
