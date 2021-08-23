@@ -29,16 +29,16 @@ Route::middleware('checkSessionMiddleware')->group(function () {
 });
 
 Route::middleware('isAuthenticatedMiddleware')->group(function () {
-    Route::get('login/user', [LoginController::class, 'login']);
+    Route::get('login', [LoginController::class, 'login']);
     Route::post('login/store', [LoginController::class, 'store'])->name('login.store');
-    Route::get('register/user', [RegisterController::class, 'register'])->name('register.index');
+    Route::get('register', [RegisterController::class, 'register'])->name('register.index');
     Route::post('register/store', [RegisterController::class, 'registerStore'])->name('register.store');
 });
 
 
-Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Auth::routes();
 // Route::get('login/user', [AuthController::class, 'login']);
 // Route::post('login/store', [AuthController::class, 'store'])->name('login.store');
 // Route::get('register-user', [AuthController::class, 'register'])->name('register.index');

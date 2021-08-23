@@ -9,6 +9,6 @@ class LogoutController extends Controller
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect('/login/user');
+        return redirect('/login');
     }
 }
