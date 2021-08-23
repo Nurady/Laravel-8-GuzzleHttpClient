@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <div class="col-md-6 mt-4 mb-4">
             <div class="card" style="">
                 <div class="card-body">
@@ -27,5 +27,5 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 @endsection

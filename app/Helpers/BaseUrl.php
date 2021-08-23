@@ -6,6 +6,6 @@ class BaseUrl
 {
     public static function endBaseUrl()
     {
-        return 'https://27fc-110-136-217-185.ngrok.io/';
+        return 'https://413d-110-136-218-170.ngrok.io/';
     } 
 }

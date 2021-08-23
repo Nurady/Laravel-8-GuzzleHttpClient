@@ -21,10 +21,10 @@
             <ul class="nav navbar-nav ml-auto">
                 @if(!session('token'))
                     <li class="nav-item {{ Request::segment(1) === 'login' ? 'active' : null }}">
-                        <a class="nav-link" href="{{ route('login') }}">login</a>
+                        <a class="nav-link" href="{{ url('login/user') }}">login</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1) === 'register-user' ? 'active' : null }}">
-                        <a class="nav-link" href="{{ url('register-user') }}">Register</a>
+                    <li class="nav-item {{ Request::segment(1) === 'register/user' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ url('register/user') }}">Register</a>
                     </li>
                 @endif
                 @if(session('token'))

@@ -14,7 +14,7 @@
 4. Method POST tanpa Header Authorization Bearer Token
 5. Method POST upload file type image (session)
 6. Bootstrap Simple UI
-7. Menyimpan Session Token ketika Login
+7. Menyimpan Session Token API ketika Login dan register
 8. Halaman Login Manual
 9. Halaman Register Manual
 10. Halaman Logout Manual
@@ -25,3 +25,5 @@
 15. Helpers Base_URL
 16. Global variable controller
 17. Halaman Dashboard (statistik aduan, aduan by user authentikasi)
+18. Validation dan Exception Login/Register
+20. Middleware Login/Register/Logout
