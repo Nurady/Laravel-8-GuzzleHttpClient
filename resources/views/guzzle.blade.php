@@ -3,6 +3,8 @@
 @section('content')
     <p>Jumlah Pengaduan : {{ count($response ) }}</p>
     <p>{{ $token }}</p>
+    <p>{{ $session_login }}</p>
+    <p>{{ $session_register }}</p>
     <div class="row">
         @foreach ($response as $item)
             <div class="col mb-4">

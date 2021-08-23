@@ -9,12 +9,14 @@
                 <li class="nav-item {{ Request::segment(1) === 'all-complaint' ? 'active' : null }}">
                     <a class="nav-link" href="{{ route('all.complaint') }}">Semua Pengaduan</a>
                 </li>
-                <li class="nav-item {{ Request::segment(1) === 'create' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ route('create.complaint') }}">Kirim Aduan</a>
-                </li>
-                <li class="nav-item {{ Request::segment(1) === 'dashboard-user' ? 'active' : null }}">
-                    <a class="nav-link" href="{{ route('dashboard.user') }}">Dashboard</a>
-                </li>
+                @if(session('token'))
+                    <li class="nav-item {{ Request::segment(1) === 'create' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ route('create.complaint') }}">Kirim Aduan</a>
+                    </li>
+                    <li class="nav-item {{ Request::segment(1) === 'dashboard-user' ? 'active' : null }}">
+                        <a class="nav-link" href="{{ route('dashboard.user') }}">Dashboard</a>
+                    </li>
+                @endif
             </ul>
             <ul class="nav navbar-nav ml-auto">
                 @if(!session('token'))

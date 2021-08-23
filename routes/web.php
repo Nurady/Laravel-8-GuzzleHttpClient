@@ -8,22 +8,19 @@ Route::get('/', function () {
 });
 
 Route::get('/all-complaint', [GuzzleController::class, 'index'])->name('all.complaint');
-Route::get('/create', [GuzzleController::class, 'create'])->name('create.complaint');
-Route::post('/store-complaint', [GuzzleController::class, 'store'])->name('store.complaint');
 Route::get('/detail-complaint/{id}', [GuzzleController::class, 'detail'])->name('detail.complaint');
 
+Route::get('/create', [GuzzleController::class, 'create'])->name('create.complaint');
+Route::post('/store-complaint', [GuzzleController::class, 'store'])->name('store.complaint');
 Route::get('/dashboard-user', [DashboardController::class, 'index'])->name('dashboard.user');
-
 Route::get('/akun-user', [AkunController::class, 'index'])->name('akun.user');
 Route::post('/photo', [AkunController::class, 'photo'])->name('photo.user');
+Route::get('logout-user', [AuthController::class, 'logout'])->name('logout.user');
 
 Route::get('login', [AuthController::class, 'login']);
 Route::post('login/store', [AuthController::class, 'store'])->name('login.store');
-
 Route::get('register-user', [AuthController::class, 'register'])->name('register.index');
 Route::post('register/store', [AuthController::class, 'registerStore'])->name('register.store');
-
-Route::get('logout-user', [AuthController::class, 'logout'])->name('logout.user');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

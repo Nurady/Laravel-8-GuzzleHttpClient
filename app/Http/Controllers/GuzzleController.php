@@ -19,9 +19,11 @@ class GuzzleController extends Controller
     public function index()
     {
         $token = session('token');
+        $session_login = session('berhasil_login');
+        $session_register = session('berhasil_register');
         $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint')->json();
         $response = $aduan['data']['data'];
-        return view('guzzle', compact('response', 'token'));
+        return view('guzzle', compact('response', 'token', 'session_login','session_register'));
     }
 
     public function detail($id)
