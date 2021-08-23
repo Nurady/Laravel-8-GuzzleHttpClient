@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
+    private $base_url;
+
+    public function __construct()
+    {
+        $this->base_url = BaseUrl::endBaseUrl();
+    }
+    
     public function login()
     {
         return view('otentikasi.login');
@@ -15,8 +22,8 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        $base_url = BaseUrl::endBaseUrl();
-        $response = Http::post($base_url . 'api/login', [
+        // $base_url = BaseUrl::endBaseUrl();
+        $response = Http::post($this->base_url . 'api/login', [
             'email' => $request->email,
             'password' => $request->password,
         ]);
@@ -35,8 +42,8 @@ class AuthController extends Controller
 
     public function registerStore(Request $request)
     {
-        $base_url = BaseUrl::endBaseUrl();
-        $response = Http::post($base_url . 'api/register', [
+        // $base_url = BaseUrl::endBaseUrl();
+        $response = Http::post($this->base_url . 'api/register', [
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,

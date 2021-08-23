@@ -8,12 +8,19 @@ use Illuminate\Support\Facades\Http;
 
 class AkunController extends Controller
 {
+    private $base_url;
+
+    public function __construct()
+    {
+        $this->base_url = BaseUrl::endBaseUrl();
+    }
+    
     public  function index()
     {
         $token = session('token');
-        $base_url = BaseUrl::endBaseUrl();
+        // $base_url = BaseUrl::endBaseUrl();
         $response = Http::withHeaders(['Authorization' => $token])
-                            ->get($base_url . 'api/user')->json();
+                            ->get($this->base_url . 'api/user')->json();
         $data = $response['data'];
         return view('akun', compact('data', 'token'));
     }
@@ -22,11 +29,11 @@ class AkunController extends Controller
     {
         
         $token = session('token');
-        $base_url = BaseUrl::endBaseUrl();
+        // $base_url = BaseUrl::endBaseUrl();
         $request->all();
         Http::withHeaders(['Authorization' => $token])
                     ->attach('picturePath', file_get_contents($request->picturePath), 'assets/user/' . $request->picturePath)
-                    ->post($base_url . 'api/user/photo', [
+                    ->post($this->base_url . 'api/user/photo', [
                         'picturePath' => $request->picturePath
                     ]);
 

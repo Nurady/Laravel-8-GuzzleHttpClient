@@ -23,3 +23,4 @@
 13. Halaman Detail Akun User
 14. Update Photo Profile User
 15. Helpers Base_URL
+16. Global variable controller
