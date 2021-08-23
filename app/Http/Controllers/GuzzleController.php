@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\BaseUrl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -11,16 +12,17 @@ class GuzzleController extends Controller
     public function index()
     {
         $token = session('token');
-        $aduan = Http::get('https://b1cb-110-136-218-170.ngrok.io/api/complaint')->json();
+        $base_url = BaseUrl::endBaseUrl();
+        $aduan = Http::get($base_url . 'api/complaint')->json();
         $response = $aduan['data']['data'];
         return view('guzzle', compact('response', 'token'));
     }
 
     public function detail($id)
     {
-        $aduan = Http::get('https://b1cb-110-136-218-170.ngrok.io/api/complaint', ['id' => $id])->json(); 
+        $base_url = BaseUrl::endBaseUrl();
+        $aduan = Http::get($base_url . 'api/complaint', ['id' => $id])->json(); 
         $data = $aduan['data'];
-        // dd($data);
         return view('detail', compact('data'));
     }
 
@@ -32,28 +34,28 @@ class GuzzleController extends Controller
 
     public function store(Request $request)
     {
-        // Tanpa Bearer Token
-                // Http::attach('picturePath', file_get_contents($request->picturePath), 'assets/complaint/' . $request->picturePath)
-                //         ->post('https://b1cb-110-136-218-170.ngrok.io/api/aduan', [
-                //             'title' => $request->title,
-                //             'location' => $request->location,
-                //             'category' => $request->category,
-                //             'description' => $request->description,
-                //             'picturePath' => $request->picturePath
-                // ]);
-        
-        // Buat aduan denga header authorization Bearer Token
         $token = session('token');
+        $base_url = BaseUrl::endBaseUrl();
         $response = Http::withHeaders(['Authorization' => $token])
                 ->attach('picturePath', file_get_contents($request->picturePath), 'assets/complaint/' . $request->picturePath)
-                ->post('https://b1cb-110-136-218-170.ngrok.io/api/createComplaint', [
+                ->post($base_url . 'api/createComplaint', [
                     'title' => $request->title,
                     'location' => $request->location,
                     'category' => $request->category,
                     'description' => $request->description,
-                    // 'picturePath' => $request->picturePath
         ]);
         // echo $response->getBody();
         return redirect()->route('all.complaint');
     }
 }
+
+
+// Tanpa Bearer Token
+// Http::attach('picturePath', file_get_contents($request->picturePath), 'assets/complaint/' . $request->picturePath)
+//         ->post('https://e019-110-136-217-185.ngrok.io/api/aduan', [
+//             'title' => $request->title,
+//             'location' => $request->location,
+//             'category' => $request->category,
+//             'description' => $request->description,
+//             'picturePath' => $request->picturePath
+// ]);

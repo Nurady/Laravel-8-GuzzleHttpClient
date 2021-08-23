@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\BaseUrl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -14,8 +15,8 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        // dd('ok');
-        $response = Http::post('https://b1cb-110-136-218-170.ngrok.io/api/login', [
+        $base_url = BaseUrl::endBaseUrl();
+        $response = Http::post($base_url . 'api/login', [
             'email' => $request->email,
             'password' => $request->password,
         ]);
@@ -23,9 +24,6 @@ class AuthController extends Controller
         $token = $response->json()['data']['token_type'] . ' ' . $response->json()['data']['access_token'];
         session(['token' => $token]);
         $session_token = session('token');
-        // dd($session_token);
-
-        // dd($response->json());
         return redirect()->route('all.complaint');
     }
 
@@ -37,8 +35,8 @@ class AuthController extends Controller
 
     public function registerStore(Request $request)
     {
-        // dd('ok');
-        $response = Http::post('https://b1cb-110-136-218-170.ngrok.io/api/register', [
+        $base_url = BaseUrl::endBaseUrl();
+        $response = Http::post($base_url . 'api/register', [
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
@@ -46,7 +44,6 @@ class AuthController extends Controller
             'password_confirmation' => $request->password,
         ]);
 
-        // dd($response->json());
         $token = $response->json()['data']['token_type'] . ' ' . $response->json()['data']['access_token'];
         session(['token' => $token]);
         $session_token = session('token');
