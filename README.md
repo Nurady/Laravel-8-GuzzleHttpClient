@@ -29,3 +29,4 @@
 20. Middleware Login/Register/Logout
 21. Menampilkan Aduan Berdasarkan Kategori
 22. Update Profile di Halaman Akun
+23. Laravel Meta Manager

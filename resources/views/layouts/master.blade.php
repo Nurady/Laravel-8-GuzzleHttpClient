@@ -5,7 +5,6 @@
     @include('includes.style')
 </head>
 <body>
-   
     @include('includes.navbar')
     <div class="container pt-3">
         @yield('content')

@@ -177,6 +177,7 @@ return [
 
         // Custom Helpers
         App\Providers\BaseUrlServiceProvider::class,
+        Davmixcool\MetaManager\MetaServiceProvider::class,
 
     ],
 
