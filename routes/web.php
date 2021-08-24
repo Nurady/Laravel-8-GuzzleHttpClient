@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Route::get('/all-complaint', [GuzzleController::class, 'index'])->name('all.complaint');
 Route::get('/detail-complaint/{id}', [GuzzleController::class, 'detail'])->name('detail.complaint');
+Route::get('/all-complaint/sampah', [GuzzleController::class, 'sampah'])->name('sampah.complaint');
+Route::get('/all-complaint/kesehatan', [GuzzleController::class, 'health'])->name('health.complaint');
+Route::get('/all-complaint/Lingkungan', [GuzzleController::class, 'lingkungan'])->name('lingkungan.complaint');
+Route::get('/all-complaint/Penduduk', [GuzzleController::class, 'penduduk'])->name('penduduk.complaint');
+Route::get('/all-complaint/Tenaga-Kerja', [GuzzleController::class, 'employee'])->name('employee.complaint');
+Route::get('/all-complaint/lainnya', [GuzzleController::class, 'other'])->name('other.complaint');
 
 Route::middleware('checkSessionMiddleware')->group(function () {
     Route::get('/create', [GuzzleController::class, 'create'])->name('create.complaint');

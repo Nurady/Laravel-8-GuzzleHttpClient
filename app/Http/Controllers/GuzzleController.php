@@ -34,6 +34,49 @@ class GuzzleController extends Controller
         return view('detail', compact('data'));
     }
 
+    public function sampah()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Sampah')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+    public function health()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Kesehatan')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+    public function lingkungan()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Lingkungan')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+    public function penduduk()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Penduduk')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+    public function employee()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Tenaga Kerja')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+    public function other()
+    {
+        $aduan = Http::retry(10, 20)->get($this->base_url . 'api/complaint/?category=Lainnya')->json();
+        $response = $aduan['data']['data'];
+        return view('guzzle', compact('response'));
+    }
+
+
     public function create()
     {
         $token = session('token');

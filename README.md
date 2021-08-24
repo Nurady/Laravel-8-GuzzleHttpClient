@@ -27,3 +27,4 @@
 17. Halaman Dashboard (statistik aduan, aduan by user authentikasi)
 18. Validation dan Exception Login/Register
 20. Middleware Login/Register/Logout
+21. Menampilkan Aduan Berdasarkan Kategori
