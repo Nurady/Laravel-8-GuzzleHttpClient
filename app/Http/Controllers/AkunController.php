@@ -18,25 +18,42 @@ class AkunController extends Controller
     public  function index()
     {
         $token = session('token');
-        // $base_url = BaseUrl::endBaseUrl();
         $response = Http::withHeaders(['Authorization' => $token])
-                            ->get($this->base_url . 'api/user')->json();
+                            ->retry(10, 20)->get($this->base_url . 'api/user')->json();
         $data = $response['data'];
         return view('akun', compact('data', 'token'));
     }
 
     public function photo(Request $request)
     {
-        
         $token = session('token');
-        // $base_url = BaseUrl::endBaseUrl();
         $request->all();
         Http::withHeaders(['Authorization' => $token])
                     ->attach('picturePath', file_get_contents($request->picturePath), 'assets/user/' . $request->picturePath)
+                    ->retry(10, 20)
                     ->post($this->base_url . 'api/user/photo', [
                         'picturePath' => $request->picturePath
                     ]);
 
+        return back();
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $token = session('token');
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'address' => ['required'],
+        ]);
+
+        $response = Http::withHeaders(['Authorization' => $token])->retry(10, 20)->post($this->base_url . 'api/user', [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'address' => $request->address,
+        ]);
+        $data = $response->json();
         return back();
     }
 }

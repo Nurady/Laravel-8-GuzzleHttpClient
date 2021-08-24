@@ -2,9 +2,10 @@
 
 @section('content')
     <p>{{ $token }}</p>
-    <div class="row mb-3">
+    <div class="row mb-3 d-flex justify-content-center">
         <div class="col-md-6">
             <div class="card">
+                <div class="card-header">Statistik Aduan Anda</div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <button class="btn btn-sm btn-primary">Total: {{ count($data ) }}</button>
@@ -17,10 +18,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         @foreach ($data as $item)
-            <div class="col mb-4">
-                <div class="card" style="width: 18rem; height: 32rem;">
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card" style="height: 32rem;">
                     <img src="{{ $item['picturePath'] }}" class="card-img-top" alt="{{ $item['title'] }}" style="height: 15rem;">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-bottom: 0 !important;">{{ $item['title'] }}</h5>

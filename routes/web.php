@@ -30,6 +30,7 @@ Route::middleware('checkSessionMiddleware')->group(function () {
     Route::get('/dashboard-user', [DashboardController::class, 'index'])->name('dashboard.user');
     Route::get('/akun-user', [AkunController::class, 'index'])->name('akun.user');
     Route::post('/photo', [AkunController::class, 'photo'])->name('photo.user');
+    Route::post('/update-profil', [AkunController::class, 'updateProfile'])->name('update.profile');
     // Route::get('logout-user', [AuthController::class, 'logout'])->name('logout.user');
     Route::get('logout-user', [LogoutController::class, 'logout'])->name('logout.user');
 });
