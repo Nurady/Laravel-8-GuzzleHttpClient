@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <p class="text-center">{{ $token }}</p>
+    {{-- <p class="text-center">{{ $token }}</p> --}}
     <div class="row d-flex justify-content-center mb-5">
         <div class="col-md-8 border d-flex align-items-center">
             <div>
@@ -10,12 +10,21 @@
                     class="rounded-circle img-fluid img-thumbnail mr-2" 
                     alt="{{ $data['name'] }}"
                     style="width: 10rem; height:10rem;">
+                <div class="mt-3">
+                    <form action="{{ route('photo.user') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" id="picturePath" name="picturePath" required>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-success">Upload Photo</button>
+                    </form>
+                </div>
             </div>
             <div class="card border-0">
                 <div class="card-body">
                     <h5 class="card-title">{{ $data['name'] }}</h5>
                     <div class="mb-3">
-                        <button class="btn btn-success">{{ $data['roles'] }}</button>
+                        <button class="btn btn-sm btn-success">{{ $data['roles'] }}</button>
                     </div>
                     <p class="text-left text-muted">
                         {{ $data['email'] }} 
@@ -35,19 +44,19 @@
         </div>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-4 d-flex align-items-center">
                 <form action="{{ route('photo.user') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="file" class="form-control" id="picturePath" name="picturePath" required>
+                        <input type="file" class="form-control-file" id="picturePath" name="picturePath" required>
                     </div>
                     <button type="submit" class="btn btn-sm btn-success">Upload Photo</button>
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="container mb-5">
         <div class="row d-flex justify-content-center mt-5">

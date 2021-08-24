@@ -1,13 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-    <p>Jumlah Pengaduan : {{ count($response ) }}</p>
+    {{-- <p>Jumlah Pengaduan : {{ count($response ) }}</p>
     <p>{{ $token ?? '' }}</p>
     <p>{{ $session_login ?? '' }}</p>
-    <p>{{ $session_register ?? '' }}</p>
+    <p>{{ $session_register ?? '' }}</p> --}}
     <div class="row mb-4">
         <div class="col">
             <div class="card">
+                <div class="card-header">Jumlah Pengaduan : {{ count($response ) }}</div>
                 <div class="card-header">Lihat Berdasarkan Kategori</div>
                 <div class="card-body">
                     <div class="d-md-flex sm-mb-2">

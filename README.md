@@ -28,3 +28,4 @@
 18. Validation dan Exception Login/Register
 20. Middleware Login/Register/Logout
 21. Menampilkan Aduan Berdasarkan Kategori
+22. Update Profile di Halaman Akun

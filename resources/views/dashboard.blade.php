@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <p>{{ $token }}</p>
+    {{-- <p>{{ $token }}</p> --}}
     <div class="row mb-3 d-flex justify-content-center">
         <div class="col-md-6">
             <div class="card">

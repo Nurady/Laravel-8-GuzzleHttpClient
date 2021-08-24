@@ -6,7 +6,7 @@
             <div class="card" style="">
                 <div class="card-body">
                     <h5 class="text-center">Form Pengaduan</h5>
-                    <p>{{ $token }}</p>
+                    {{-- <p>{{ $token }}</p> --}}
                     <form action="{{ route('store.complaint') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
@@ -34,9 +34,11 @@
                         </div>
                         <div class="form-group">
                             <label for="picturePath">Photo</label>
-                            <input type="file" class="form-control" id="picturePath" name="picturePath">
+                            <input type="file" class="form-control-file" id="picturePath" name="picturePath">
                         </div>
-                        <button type="submit" class="btn btn-success">Kirim Aduan</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Kirim Aduan</button>
+                        </div>
                     </form>
                 </div>
             </div>
